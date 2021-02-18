@@ -1,0 +1,56 @@
+<h2>
+  Template:
+  <small>Dynamics</small>
+</h2>
+
+<form autocomplete="off">
+  <!-- name -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Name</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        placeholder="Person Name"
+      />
+      <span class="form-text text-danger"> This field is required. </span>
+    </div>
+  </div>
+
+  <!-- add favorite -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Add</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Add Favorites" />
+        <button type="button" class="btn btn-outline-primary">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!--  list of favorite games-->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Favorites</label>
+    <div class="col-sm-9">
+      <div class="input-group mb-1">
+        <input class="form-control" />
+        <button type="button" class="btn btn-outline-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-primary float-end">Save</button>
+    </div>
+  </div>
+</form>
+
+<!-- <div class="row">
+  <div class="col">
+    
+    <span>Person</span>
+    <pre>{{ person | json }}</pre>
+  </div>
+</div> -->

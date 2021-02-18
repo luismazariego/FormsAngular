@@ -1,0 +1,89 @@
+<h2>Template: Switches</h2>
+<hr />
+
+<form >
+  <!-- radio -->
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label"> Gender </label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="genderRadio"
+          
+          id="maleRadio"
+          value="M"
+        />
+        <label class="form-check-label" for="maleRadio"> Male </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="genderRadio"
+          id="femaleRadio"
+          
+          value="F"
+        />
+        <label class="form-check-label" for="femaleRadio"> Female </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- switches -->
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label"> Notifications </label>
+    <div class="col-sm-9">
+      <div class="form-check form-switch mt-2">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          
+          id="flexSwitchCheckChecked"
+        />
+        <label class="form-check-label" for="flexSwitchCheckChecked">
+          I want to receive notifications
+        </label>
+      </div>
+    </div>
+  </div>
+
+<!-- checkbox -->
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label">  </label>
+    <div class="col-sm-9">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="defaultCheck1"
+        />
+        <label class="form-check-label" for="defaultCheck1">
+          Terms & Conditions
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- button -->
+  <div class="row">
+      <div class="col">
+          <button class="btn btn-primary float-end" >Save</button>
+      </div>
+  </div>
+</form>
+
+<!-- <h4>Form Value</h4>
+<pre>{{myForm.value | json}}</pre>
+<br>
+
+<h4>Person</h4>
+<pre>{{person | json}}</pre>
+<br>
+
+<h4>Is Valid</h4>
+<pre>{{myForm.valid}}</pre>
+<br>
+
+<pre>Conditions: </pre> -->
