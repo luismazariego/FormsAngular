@@ -3,7 +3,7 @@
   <small>Dynamics</small>
 </h2>
 
-<form autocomplete="off">
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="save()">
   <!-- name -->
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Name</label>
@@ -12,9 +12,11 @@
         type="text"
         class="form-control"
         name="name"
+        formControlName="name"
         placeholder="Person Name"
       />
-      <span class="form-text text-danger"> This field is required. </span>
+      <span class="form-text text-danger" 
+      *ngIf="isValidField('name')"> This field is required. </span>
     </div>
   </div>
 
@@ -32,9 +34,10 @@
   <!--  list of favorite games-->
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Favorites</label>
-    <div class="col-sm-9">
-      <div class="input-group mb-1">
-        <input class="form-control" />
+    <div class="col-sm-9" formArrayName="favorites">
+      <div class="input-group mb-1" 
+      *ngFor="let fav of favsArray.controls let i=index" >
+        <input class="form-control" [formControlName]="i" />
         <button type="button" class="btn btn-outline-danger">Delete</button>
       </div>
     </div>
@@ -42,11 +45,16 @@
 
   <div class="row">
     <div class="col-sm-12">
-      <button type="button" class="btn btn-primary float-end">Save</button>
+      <button type="submit" class="btn btn-primary float-end">Save</button>
     </div>
   </div>
 </form>
+<span>Valid</span>
+<pre>{{ myForm.valid }}</pre>
+<br>
 
+<span>Value</span>
+<pre>{{ myForm.value | json }}</pre>
 <!-- <div class="row">
   <div class="col">
     

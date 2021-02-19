@@ -22,7 +22,12 @@ export class BasicsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.myForm.reset({
+      name: 'RXT 4000tx',
+      price: 1500,
+    })
+  }
   
   isValidField(field: string) {
     return this.myForm.controls[field].errors && this.myForm.controls[field].touched;
