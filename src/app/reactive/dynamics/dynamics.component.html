@@ -8,15 +8,8 @@
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Name</label>
     <div class="col-sm-9">
-      <input
-        type="text"
-        class="form-control"
-        name="name"
-        formControlName="name"
-        placeholder="Person Name"
-      />
-      <span class="form-text text-danger" 
-      *ngIf="isValidField('name')"> This field is required. </span>
+      <input type="text" class="form-control" name="name" formControlName="name" placeholder="Person Name" />
+      <span class="form-text text-danger" *ngIf="isValidField('name')"> This field is required. </span>
     </div>
   </div>
 
@@ -25,8 +18,9 @@
     <label class="col-sm-3 col-form-label">Add</label>
     <div class="col-sm-9">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Add Favorites" />
-        <button type="button" class="btn btn-outline-primary">Add</button>
+        <input type="text" class="form-control" [formControl]="newFav" placeholder="Add Favorites"
+          (keyup.enter)="addFav()" />
+        <button type="button" class="btn btn-outline-primary" (click)="addFav()">Add</button>
       </div>
     </div>
   </div>
@@ -35,10 +29,9 @@
   <div class="mb-3 row">
     <label class="col-sm-3 col-form-label">Favorites</label>
     <div class="col-sm-9" formArrayName="favorites">
-      <div class="input-group mb-1" 
-      *ngFor="let fav of favsArray.controls let i=index" >
+      <div class="input-group mb-1" *ngFor="let fav of favsArray.controls let i=index">
         <input class="form-control" [formControlName]="i" />
-        <button type="button" class="btn btn-outline-danger">Delete</button>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteFav(i)">Delete</button>
       </div>
     </div>
   </div>
@@ -55,10 +48,7 @@
 
 <span>Value</span>
 <pre>{{ myForm.value | json }}</pre>
-<!-- <div class="row">
-  <div class="col">
-    
-    <span>Person</span>
-    <pre>{{ person | json }}</pre>
-  </div>
-</div> -->
+<br>
+<span>Add Anime</span>
+<pre>{{ newFav.value }}</pre>
+<br>
