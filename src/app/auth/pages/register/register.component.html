@@ -20,8 +20,8 @@
         <div class="col-sm-9">
           <input type="email" class="form-control" formControlName="email" placeholder="Email" />  
           <span class="form-text text-danger" *ngIf="isValid('email')">
-            Email is required
-          </span>        
+           {{ emailErrorMsg }}
+          </span>           
         </div>
       </div>
       <!-- username -->
@@ -38,19 +38,25 @@
       <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Password</label>
         <div class="col-sm-9">
-          <input type="password" class="form-control" placeholder="Password" />          
+          <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+          <span class="form-text text-danger" *ngIf="isValid('password')">
+            Password must have more than 6 characters
+          </span>          
         </div>
       </div>
       <!-- password2 -->
       <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Confirm Password</label>
         <div class="col-sm-9">
-          <input type="password" class="form-control" placeholder="Confirm Password" />          
+          <input type="password" class="form-control" formControlName="password2" placeholder="Confirm Password" />          
+          <span class="form-text text-danger" *ngIf="isValid('password2')">
+            Passwords must be equal
+          </span> 
         </div>
       </div>
       <div class="row">
           <div class="col">
-              <button type="submit" class="btn btn-primary float-end">Save</button>
+              <button type="submit" class="btn btn-primary float-end" [disabled]="myForm.pending">Save</button>
           </div>
       </div>
     </form>
@@ -58,9 +64,16 @@
 </div>
 
 <h2>Form Valid: {{ myForm.valid }}</h2>
+<h2>Form Status: {{ myForm.status }}</h2>
+<h2>Form errors: {{ myForm.errors | json }}</h2>
+<hr>
 <h2>Name</h2>
 <pre> {{myForm.controls.name.errors | json}} </pre>
 <h2>Email</h2>
 <pre> {{myForm.controls.email.errors | json}} </pre>
 <h2>Username</h2>
 <pre> {{myForm.controls.username.errors | json}} </pre>
+<h2>Password</h2>
+<pre> {{myForm.controls.password.errors | json}} </pre>
+<h2>Confirm Password</h2>
+<pre> {{myForm.controls.password2.errors | json}} </pre>
